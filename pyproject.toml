@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "smitestat"
+version = "0.1.0"
+description = "smite stats"
+authors = ["StarrFox <starrfox6312@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/StarrFox/smitestat"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_type = "semver"
+version_provider = "poetry"
+update_changelog_on_bump = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
