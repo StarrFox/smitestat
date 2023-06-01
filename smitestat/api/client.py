@@ -6,11 +6,11 @@ import pendulum
 
 
 # TODO: add a reminder or something if these keyerror
-# DEV_ID = environ["HIREZ_devid"]
-# AUTH_KEY = environ["HIREZ_authkey"]
+DEV_ID = environ["HIREZ_devid"]
+AUTH_KEY = environ["HIREZ_authkey"]
 
-DEV_ID = "1004"
-AUTH_KEY = "23DF3C7E9BD14D84BF892AD206B6755C"
+# DEV_ID = "1004"
+# AUTH_KEY = "23DF3C7E9BD14D84BF892AD206B6755C"
 
 BASE_URL = "https://api.smitegame.com/smiteapi.svc"
 
@@ -25,7 +25,7 @@ class Client:
 
     @staticmethod
     def get_signature(method_name: str, timestamp: str):
-        signature = DEV_ID + method_name + timestamp + AUTH_KEY
+        signature = DEV_ID + method_name + AUTH_KEY + timestamp
         return md5(signature.encode()).hexdigest()
 
     async def request(self, method_name: str):
