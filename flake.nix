@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-        starrpkgs = {
+    starrpkgs = {
       url = "github:StarrFox/packages";
       inputs.nixpkgs.follows = "nixpkgs";
     }; 
