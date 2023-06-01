@@ -22,8 +22,11 @@
 
         app = pkgs.poetry2nix.mkPoetryApplication {
           projectDir = ./.;
-          overrides =
-            [ pkgs.poetry2nix.defaultPoetryOverrides customOverrides ];
+          poetry = pkgs.python311;
+          overrides = [
+            pkgs.poetry2nix.defaultPoetryOverrides
+            customOverrides
+          ];
         };
 
         packageName = "smitestat";
@@ -33,7 +36,7 @@
         defaultPackage = self.packages.${system}.${packageName};
 
         devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [poetry spkgs.commitizen just alejandra black isort rnix-lsp];
+          buildInputs = with pkgs; [python311 poetry spkgs.commitizen just alejandra black isort rnix-lsp];
         };
       });
 }
